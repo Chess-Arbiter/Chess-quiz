@@ -1,6 +1,4 @@
-import { LANGS, Lang } from "./quiz";
-
-const LANG_KEY = "chess-quiz:lang";
+import type { Lang } from "./quiz";
 
 export const LANG_LABELS: Record<Lang, string> = { en: "EN", hy: "ՀԱՅ", ru: "РУ" };
 
@@ -84,24 +82,3 @@ export const STRINGS = {
 
 export type Strings = (typeof STRINGS)[Lang];
 
-const isLang = (v: unknown): v is Lang => LANGS.includes(v as Lang);
-
-/** Saved choice, else the browser language, else English. */
-export function loadLang(): Lang {
-  try {
-    const saved = localStorage.getItem(LANG_KEY);
-    if (isLang(saved)) return saved;
-  } catch {
-    // Storage unavailable — fall through to the browser language.
-  }
-  const browser = navigator.language?.slice(0, 2);
-  return isLang(browser) ? browser : "en";
-}
-
-export function saveLang(lang: Lang) {
-  try {
-    localStorage.setItem(LANG_KEY, lang);
-  } catch {
-    // Storage unavailable — language just won't persist.
-  }
-}

@@ -1,8 +1,7 @@
 import Storage from 'expo-sqlite/kv-store';
 import { getLocales } from 'expo-localization';
-import { LANGS, type Lang } from '../../web/src/quiz';
+import { LANGS, type Lang } from './quiz';
 
-// Same keys as the web app's localStorage, so the data has the same shape on both.
 const LANG_KEY = 'chess-quiz:lang';
 const BEST_KEY = 'chess-quiz:best';
 

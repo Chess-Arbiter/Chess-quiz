@@ -1,4 +1,4 @@
-// Palette shared with the web quiz (web/src/theme.css) and the Chess-clock app.
+// Palette shared with the Chess-clock app.
 export const colors = {
   bg: '#f1f3fa',
   surface: '#fff',

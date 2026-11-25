@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { BackHandler, Linking, Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewInstance } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-// Quiz logic, questions and translations are shared with the web app.
-import { LANG_LABELS, STRINGS, type Strings } from '../web/src/i18n';
-import { ALL_CATEGORIES, DATA, LANGS, type Lang, type RoundItem, buildRound, questionsIn } from '../web/src/quiz';
+import { LANG_LABELS, STRINGS, type Strings } from './src/i18n';
+import { ALL_CATEGORIES, DATA, LANGS, type Lang, type RoundItem, buildRound, questionsIn } from './src/quiz';
 import { loadBest, loadLang, saveBest, saveLang } from './src/storage';
 import { colors, radius, shadow } from './src/theme';
 
 const ROUND_SIZES = [5, 10, 20];
 // The only screen that needs internet; it opens in the browser.
-const PRIVACY_URL = 'https://chess-quiz-three.vercel.app/privacy/';
+const PRIVACY_URL = 'https://chessarbiter.info/privacy/chess-quiz';
 
 type Phase = 'setup' | 'playing' | 'done';
 /** `picked` is an index into the question's original options, so it survives a language switch. */
